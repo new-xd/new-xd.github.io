@@ -9,5 +9,5 @@ github_username:  new-xd
 
 # Build settings
 markdown: kramdown
-highlighter: rouge
+# highlighter: rouge
 encoding: utf-8
