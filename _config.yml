@@ -3,8 +3,8 @@ title: New_xd
 email: new_xd@qq.com
 description: > # this means to ignore newlines until "baseurl:"
   我是一名Android工程师，学习的速度赶不上技术的变化啊！
-baseurl: "/new-xd" # the subpath of your site, e.g. /blog/
-url: "http://new-xd.github.io/new-xd" # the base hostname & protocol for your site
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://new-xd.github.io/" # the base hostname & protocol for your site
 github_username:  new-xd
 
 # Build settings
