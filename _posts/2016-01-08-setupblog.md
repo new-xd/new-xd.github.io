@@ -50,6 +50,8 @@ categories: setup
  - 文章的样式要自己调整的，这个不是程序员还真弄不来，本来以为主题里这些应该都写好了，
    却发现基本是只满足demo文章的样式。。。
  - 文件名， category 都不要用中文，不然会出错，以后看看能不能解决
+ - 最后提交时，出现 样式丢失的情况，主要原因是 baseUrl 设置了 /new-xd， 应该是还缺少其他改动
+   先把baseUrl恢复为默认""
 
 ##附加参考
 [markdown的语法说明](http://wowubuntu.com/markdown/)
