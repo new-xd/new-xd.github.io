@@ -36,13 +36,9 @@ tags:
                 index.js
 
 config.xml是cordova的配置文件
-
 hooks是存放cordova命令钩子脚本的目录
-
 platforms是存放各平台的代码
-
 plugins是存放安装的插件的源代码
-
 www存放前端代码，即应用的主要代码
 
 ## config.xml
@@ -79,15 +75,19 @@ www存放前端代码，即应用的主要代码
 其中widget的属性id是应用ID，对于android就像应用程序的在manifest中声明的包名，version就是应用版本。
 content标签的src是指应用启动首先加载的页面，是一个相对路径，相对于工程的www文件夹。
 plugin标签说明应用需要的插件，name为插件ID。
-\<access\> elements define the set of external domains the app is allowed to communicate with. 
+
+> \<access\> elements define the set of external domains the app is allowed to communicate with. 
 The default value shown above allows it to access any server.
-access标签配置应用可以通信的外部域名。默认值*表示所有域名
-allow-intent 是配置*js*调用*cordova提供的loadUrl接口*可以打开的外部界面（这个界面包括native界面和网页）
+
+access标签配置应用可以通信的外部域名。默认值\*表示所有域名
+allow-intent 是配置 js调用cordova提供的loadUrl接口 可以打开的外部界面（这个界面包括native界面和网页）
 platform标签配置各平台特有的配置
 
 ## 添加一个Android平台
 执行
+
     cordova platform add android
+
 之后，platforms下会多一个android文件夹，里面是android平台的代码，
 plugins下会多一个cordova-plugin-whitelist插件的源代码，如下
 
@@ -264,7 +264,9 @@ platform_www是android平台的cordova js框架实现（这个各平台是否一
 ## 添加个插件
 以cordova-plugin-device插件为例
 执行
+
     cordova plugin add cordova-plugin-device
+
 之后，目录结构新增变化如下
 
     │  
@@ -355,6 +357,7 @@ src下增加了 插件对应的android实现。
 
 从plugins目录下，可以看下插件的代码的目录结构
 插件主要包括3部分
+
 - plugin.xml 插件的配置文件
 - src文件夹，主要包括此插件在各平台的实现
 - www/device.js 插件对应的js接口代码
@@ -371,9 +374,11 @@ src下增加了 插件对应的android实现。
 针对某平台开发意思是说放弃cordova的跨平台特性，用html、css、js等技术开发某特定平台的应用。
 这种情况下，上面说到的cordova工程目录就有些冗余了。
 但是，官方对于针对某平台开发的工程创建，是这样建议的
+
 1. 先创建跨平台的工程（上面说的目录结构）
 2. 添加要针对的平台（比如说android）
 3. 此时 platforms/android 下的工程，就可以作为 针对android平台的工程目录
+
 相关的操作命令也在platforms/android/cordova/下
 另外 还有一种方式 就是利用某平台的工具直接生成相应平台的工程
 比如[Android平台的](https://github.com/apache/cordova-android)
@@ -383,9 +388,13 @@ src下增加了 插件对应的android实现。
 
 插件的安装工具也与跨平台的有所区别，是[plugman](https://www.npmjs.com/package/plugman)
 安装工具
+
     cnpm install -g plugman
+
 安装插件
+
     plugman install --platform <platform> --project <directory> --plugin <plugin>
+
 platform指定平台，project指定此平台的工程目录，plugin指定插件
 
 ## 最后
