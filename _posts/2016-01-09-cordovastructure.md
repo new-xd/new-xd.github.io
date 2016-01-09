@@ -2,7 +2,7 @@
 layout:     post
 title:      "Cordova工程结构"
 subtitle:   "让我们看看cordova代码是怎么组织的"
-date:       2016-01-09 08:21:00
+date:       2016-01-09 08:21:00+0800
 author:     "New"
 header-img: ""
 tags:

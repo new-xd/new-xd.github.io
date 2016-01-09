@@ -2,7 +2,7 @@
 layout:     post
 title:      "博客环境搭建"
 subtitle:   "在windows 搭建一个github博客"
-date:       2016-01-08 0:30:00
+date:       2016-01-08 0:30:00+0800
 author:     "New"
 header-img: ""
 tags:
@@ -11,6 +11,11 @@ tags:
 ---
 
 在中国、 在windows上搭建这些blog真是 麻烦
+
+# 重要提示
+在windows环境下，按照这个说明搭建出来的blog，会由于一些时区问题，造成blog无法生成或者时间解析错误
+问题的原因和解析可以参照[这里](https://github.com/jekyll/jekyll/issues/1069)
+在中国 使用windows系统 使用jekyll+github写博客的朋友如果没有此问题，可以留下你的ruby版本号
 
 ## 步骤：
 

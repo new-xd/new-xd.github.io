@@ -2,7 +2,7 @@
 layout:     post
 title:      "Cordova介绍"
 subtitle:   "初步了解cordova，看下效果"
-date:       2016-01-08 23:00:00
+date:       2016-01-08 23:00:00+0800
 author:     "New"
 header-img: ""
 tags:
