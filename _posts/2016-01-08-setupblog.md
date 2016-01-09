@@ -1,19 +1,24 @@
 ---
-layout: post
-title:  "博客环境搭建"
-date:   2016-01-08
-categories: setup
+layout:     post
+title:      "博客环境搭建"
+subtitle:   "在windows 搭建一个github博客"
+date:       2016-01-08 0:30:00
+author:     "New"
+header-img: ""
+tags:
+    - 环境搭建
+    - blog
 ---
 
 在中国、 在windows上搭建这些blog真是 麻烦
 
-##步骤：
+## 步骤：
 
  1. 搭建github博客
  2. 安装jekyll
  3. 发布第一篇文章
  
-##搭建github博客
+## 搭建github博客
 
 这一步在百度上搜索会有很多的帖子，所以不在写了。
 
@@ -28,7 +33,7 @@ categories: setup
 
 为了方便查看博客的最终效果，肯定本地也要按照jekyll工具，可惜那篇帖子的楼主没有写续篇。
 
-##安装jekyll
+## 安装jekyll
 
 安装过程参考[jekyll的说明](http://jekyllrb.com/docs/windows/#installation)，
 其中的链接有些需要翻墙，才能流畅访问。
@@ -37,7 +42,7 @@ categories: setup
 
 安装jekyll时，先设置下[国内代理](https://ruby.taobao.org/)不然也是慢的不行
 
-##发布第一篇文章
+## 发布第一篇文章
 
 要发布文章了，但是排版也不能太丑，所以搜了jekyll模板，使用了这个clean主题。
 然后就是按照jekyll的说明，修改下主题的相关配置，以添加自己的信息
@@ -45,7 +50,7 @@ categories: setup
 从开始到写这篇文章，整了3+小时，主要原因是不熟悉用markdown写博客生成网页的流程，
 不知道github上到底怎么添加一个博客。还有就是下载ruby安装包很慢。。
 
-##遇到的一些其他问题
+## 遇到的一些其他问题
 
  - 文章的样式要自己调整的，这个不是程序员还真弄不来，本来以为主题里这些应该都写好了，
    却发现基本是只满足demo文章的样式。。。
@@ -53,6 +58,6 @@ categories: setup
  - 最后提交时，出现 样式丢失的情况，主要原因是 baseUrl 设置了 /new-xd， 应该是还缺少其他改动
    先把baseUrl恢复为默认""
 
-##附加参考
+## 附加参考
 [markdown的语法说明](http://wowubuntu.com/markdown/)
 
