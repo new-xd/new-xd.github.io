@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "Cordova android启动过程浏览"
-subtitle:   "其实那么复杂"
+subtitle:   "其实没那么复杂"
 date:       2016-01-31 20:40:00+0800
 author:     "New"
 header-img: ""
