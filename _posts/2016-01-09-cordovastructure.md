@@ -35,11 +35,11 @@ tags:
         └─js
                 index.js
 
-config.xml是cordova的配置文件
-hooks是存放cordova命令钩子脚本的目录
-platforms是存放各平台的代码
-plugins是存放安装的插件的源代码
-www存放前端代码，即应用的主要代码
+config.xml是cordova的配置文件，下面重点介绍下
+hooks是存放cordova命令钩子脚本的目录，主要为了一些项目特殊需要，方便对cordova命令做功能扩展
+platforms是存放各平台的代码，此目录代码由cordova生成，一般不需要手动修改
+plugins是存放安装的插件的源代码，安装插件时会先把插件代码下载到此目录，然后开始安装到各平台
+www存放前端代码，即应用的主要代码，主要的工作目录
 
 ## config.xml
 
@@ -82,6 +82,13 @@ The default value shown above allows it to access any server.
 access标签配置应用可以通信的外部域名。默认值\*表示所有域名
 allow-intent 是配置 js调用cordova提供的loadUrl接口 可以打开的外部界面（这个界面包括native界面和网页）
 platform标签配置各平台特有的配置
+
+#### 注意
+
+这个config.xml是对应用的统一配置，
+对于某个平台，会在此config.xml基础上添加该平台需要的插件信息、参数信息、针对性配置等，生成新的config.xml
+各平台的config.xml都在各平台的代码中，不需要手动修改，每次编译打包的时候，会重新生成。
+手动修改可能会造成一些不能理解的问题（了解细节才能发现问题）
 
 ## 添加一个Android平台
 执行
@@ -257,7 +264,7 @@ plugins下会多一个cordova-plugin-whitelist插件的源代码，如下
 还有cordova、CordovaLib、platform_www3个文件夹
 cordova下都是针对android平台较底层的命令行工具
 CordovaLib是应用依赖的cordova框架的android实现lib
-platform_www是android平台的cordova js框架实现（这个各平台是否一致，我没有验证过）
+platform_www是android平台的cordova js框架实现
 而src目录下，主要就是运行前端代码的MainActivity和白名单插件对应的native实现
 另外就是 会在res/xml下生成一个android平台的config.xml, 方便android平台解析配置
 
@@ -354,6 +361,7 @@ platform_www是android平台的cordova js框架实现（这个各平台是否一
 首先 plugins目录下，增加了cordova-plugin-device的代码
 android工程中，assets下 增加了device.js 插件的js代码
 src下增加了 插件对应的android实现。
+config.xml中的也添加了device插件的信息
 
 从plugins目录下，可以看下插件的代码的目录结构
 插件主要包括3部分

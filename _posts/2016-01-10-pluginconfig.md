@@ -62,7 +62,7 @@ version是插件版本
 
 #### js-module
 js-module 是 对插件js代码的配置
-首先插件的js代码都是模块化的，一个文件就是一个js模块
+首先，插件的js代码都是模块化的，一个文件就是一个js模块
 可以说一个js-module配置了一个js模块
 src 是指此模块的源代码，
 name 是指此模块的名字
@@ -114,7 +114,7 @@ js-module中可以有3种标签
 
 - clobbers target=some.value 说明这个模块会被以 window.some.value的形式 插入到window对象，可以有多个clobbers标签，window上不存的对象，会被创建。
 - merges target=some.value 说明这个模块对外的接口 会被 合并到 window.some.value上，如果存在的接口会被覆盖，可有有多个标签，不存在的对象会被创建
-- runs 意味着你的js需要作为模块执行一次，但是不需要在window对象上暴露对外接口。这个用于初始化模块、绑定监听器比较有用。只能有一个runs标签。注意和clobbers或者merges公用是多用的，因为这两个标签都会执行一次模块代码
+- runs 意味着你的js需要作为模块执行一次，但是不需要在window对象上暴露对外接口。这个用于初始化模块、绑定监听器比较有用。只能有一个runs标签。注意和clobbers或者merges公用是多余的，因为这两个标签都会执行一次模块代码
 - 空的js-module仍然会被加载，而且可以在其他模块中用cordova.require调用
 
 
@@ -133,7 +133,28 @@ config-file内的标签就是添加到目标文件的内容
 			<activity android:name="com.your.package.YourActivity"/>
 		</config-file>
 
-目前还没有发现如何修改已有标签，我只会新添
+目前还没有发现如何修改已有标签，只能新添
+
+对于插件，需要对各平台的config.xml添加插件信息，如下
+
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="Device" >
+                <param name="android-package" value="org.apache.cordova.device.Device"/>
+            </feature>
+        </config-file>
+
+这样就会在Android平台代码中，对res/xml/config.xml文件的根节点下插入
+
+        <feature name="Device" >
+            <param name="android-package" value="org.apache.cordova.device.Device"/>
+        </feature>
+
+这个就是插件的配置信息
+
+feature代表此插件提供的一个功能模块，name是此功能模块的命名，
+android-package是此功能模块对应的android实现。
+
+cordova在初始化过程中，通过解析feature就可以知道该平台都有哪些功能模块，分别对应的实现是谁。
 
 ##### source-file
 source-file表示插件android平台的实现如何放入android工程，比较简单

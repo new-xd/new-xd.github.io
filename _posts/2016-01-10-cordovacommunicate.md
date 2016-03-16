@@ -26,6 +26,7 @@ native处理完后，返回处理结构。
 - successCallback 是 请求成功的回调
 - errorCallback 是 请求失败的回调
 - "Device" 是 native的服务名，这个服务名会对应于一个native的插件实现
+    - 就是插件配置信息中的feature的名字
 - "getDeviceInfo" 是 native服务提供的方法
 - [] 中应该参入此方法的参数
 
@@ -35,7 +36,7 @@ native处理完后，返回处理结构。
 从js的接口可以看出，native应该实现一个“服务”Device，这个“服务”应该有个“方法”getDeviceInfo,接受参数为空。
 
 但是因为平台不同，每个平台的具体实现也都不想同，所以“服务”和“方法”的具体实现形式都可能不同。
-这里我只说Android，因为其他平台我也不懂
+这里我只说Android
 
 在Android平台，“服务”对应一个CordovaPlugin类，js调用最终会调用到此类的execute方法
 

@@ -20,6 +20,11 @@ CSS3, and JavaScript for cross-platform development, avoiding
 
 简单来说，就是可以用html css js等web技术开发移动应用，一套代码多平台使用
 
+## 应用场景
+
+- 想要开发android ios应用，但是不会java和Objective-c，学习成本高，学习前端技术可以较快的写出应用，而且android和ios都有了
+- 已有的native应用中，某个模块用前端技术快速实现
+
 ## 为什么要用
 - 跨平台，不用维护多份代码
 - 前端开发比native开发的工作量小，维护成本也低
@@ -84,3 +89,5 @@ xxx可以是插件ID、插件的git链接、本地的相对路径
     cordova run android
 
 此时应该就可以在设备上或者genymotion中看到运行的app了
+
+注意，不需要把项目导入Eclipse/AndroidStudio/Xcode
