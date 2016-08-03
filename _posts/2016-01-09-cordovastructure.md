@@ -85,10 +85,10 @@ platform标签配置各平台特有的配置
 
 #### 注意
 
-这个config.xml是对应用的统一配置，
-对于某个平台，会在此config.xml基础上添加该平台需要的插件信息、参数信息、针对性配置等，生成新的config.xml
-各平台的config.xml都在各平台的代码中，不需要手动修改，每次编译打包的时候，会重新生成。
-手动修改可能会造成一些不能理解的问题（了解细节才能发现问题）
+这个config.xml是对应用的统一配置，  
+对于某个平台，会在此config.xml基础上添加该平台需要的插件信息、参数信息、针对性配置等，生成新的config.xml  
+各平台的config.xml都在各平台的代码中，不需要手动修改，每次编译打包的时候，会重新生成。  
+手动修改可能会造成一些不能理解的问题（了解细节才能发现问题）  
 
 ## 添加一个Android平台
 执行
@@ -258,15 +258,15 @@ plugins下会多一个cordova-plugin-whitelist插件的源代码，如下
         │  前端代码没有变化就不列了
 
 
-其实就是下了一个android工程的模板，然后又下了一个白名单插件，安装到android工程中
-在这个android工程中，
-可以看到assets下有前端代码，其中包括根目录下的代码，cordova的js框架，白名单插件对应的js代码，
-还有cordova、CordovaLib、platform_www3个文件夹
-cordova下都是针对android平台较底层的命令行工具
-CordovaLib是应用依赖的cordova框架的android实现lib
-platform_www是android平台的cordova js框架实现
-而src目录下，主要就是运行前端代码的MainActivity和白名单插件对应的native实现
-另外就是 会在res/xml下生成一个android平台的config.xml, 方便android平台解析配置
+其实就是下了一个android工程的模板，然后又下了一个白名单插件，安装到android工程中  
+在这个android工程中，  
+可以看到assets下有前端代码，其中包括根目录下的代码，cordova的js框架，白名单插件对应的js代码，  
+还有cordova、CordovaLib、platform_www3个文件夹  
+cordova下都是针对android平台较底层的命令行工具  
+CordovaLib是应用依赖的cordova框架的android实现lib  
+platform_www是android平台的cordova js框架实现  
+而src目录下，主要就是运行前端代码的MainActivity和白名单插件对应的native实现  
+另外就是 会在res/xml下生成一个android平台的config.xml, 方便android平台解析配置  
 
 ## 添加个插件
 以cordova-plugin-device插件为例
@@ -358,54 +358,54 @@ platform_www是android平台的cordova js框架实现
     │  │  └─www
     │  │          device.js
     
-首先 plugins目录下，增加了cordova-plugin-device的代码
-android工程中，assets下 增加了device.js 插件的js代码
-src下增加了 插件对应的android实现。
-config.xml中的也添加了device插件的信息
+首先 plugins目录下，增加了cordova-plugin-device的代码  
+android工程中，assets下 增加了device.js 插件的js代码  
+src下增加了 插件对应的android实现。  
+config.xml中的也添加了device插件的信息  
 
-从plugins目录下，可以看下插件的代码的目录结构
-插件主要包括3部分
+从plugins目录下，可以看下插件的代码的目录结构  
+插件主要包括3部分  
 
 - plugin.xml 插件的配置文件
 - src文件夹，主要包括此插件在各平台的实现
 - www/device.js 插件对应的js接口代码
 
-从上面的目录结构也可以看出当安装某个插件后，
-插件的各平台实现代码就转移到各平台工程中的源代码目录中
-插件的js代码就转移到各平台存放前端代码的地方
-而这些转移操作一方面由cordova脚本控制，一方面由插件的配置文件plugin.xml控制
-另外plugin.xml中的配置信息也会整合到各平台的config.xml中。
+从上面的目录结构也可以看出当安装某个插件后，  
+插件的各平台实现代码就转移到各平台工程中的源代码目录中  
+插件的js代码就转移到各平台存放前端代码的地方  
+而这些转移操作一方面由cordova脚本控制，一方面由插件的配置文件plugin.xml控制  
+另外plugin.xml中的配置信息也会整合到各平台的config.xml中。  
 
-安装插件后，前端开发者就可以在代码中调用插件提供的js接口了，具体调用方式可以查看插件的说明
+安装插件后，前端开发者就可以在代码中调用插件提供的js接口了，具体调用方式可以查看插件的说明  
 
 ## 针对某平台开发
-针对某平台开发意思是说放弃cordova的跨平台特性，用html、css、js等技术开发某特定平台的应用。
-这种情况下，上面说到的cordova工程目录就有些冗余了。
-但是，官方对于针对某平台开发的工程创建，是这样建议的
+针对某平台开发意思是说放弃cordova的跨平台特性，用html、css、js等技术开发某特定平台的应用。  
+这种情况下，上面说到的cordova工程目录就有些冗余了。  
+但是，官方对于针对某平台开发的工程创建，是这样建议的  
 
-1. 先创建跨平台的工程（上面说的目录结构）
-2. 添加要针对的平台（比如说android）
-3. 此时 platforms/android 下的工程，就可以作为 针对android平台的工程目录
+1. 先创建跨平台的工程（上面说的目录结构）  
+2. 添加要针对的平台（比如说android）  
+3. 此时 platforms/android 下的工程，就可以作为 针对android平台的工程目录  
 
-相关的操作命令也在platforms/android/cordova/下
-另外 还有一种方式 就是利用某平台的工具直接生成相应平台的工程
-比如[Android平台的](https://github.com/apache/cordova-android)
-具体命令请参考[各平台命令行工具说明](http://cordova.apache.org/docs/en/latest/guide/platforms/index.html)
+相关的操作命令也在platforms/android/cordova/下  
+另外 还有一种方式 就是利用某平台的工具直接生成相应平台的工程  
+比如[Android平台的](https://github.com/apache/cordova-android)  
+具体命令请参考[各平台命令行工具说明](http://cordova.apache.org/docs/en/latest/guide/platforms/index.html)  
 
-所以 针对某平台的工程目录结构和跨平台中某平台的工程目录结构是相似的
+所以 针对某平台的工程目录结构和跨平台中某平台的工程目录结构是相似的  
 
-插件的安装工具也与跨平台的有所区别，是[plugman](https://www.npmjs.com/package/plugman)
-安装工具
+插件的安装工具也与跨平台的有所区别，是[plugman](https://www.npmjs.com/package/plugman)  
+安装工具  
 
     cnpm install -g plugman
 
-安装插件
+安装插件  
 
     plugman install --platform <platform> --project <directory> --plugin <plugin>
 
-platform指定平台，project指定此平台的工程目录，plugin指定插件
+platform指定平台，project指定此平台的工程目录，plugin指定插件  
 
 ## 最后
-至此，对cordova的目录结构应该有个大致了解。
-但是上面说的不是绝对的，比如插件的目录结构可能由于插件的功能（仅需要js或者native代码）不同，而有所缺失。
-又或者需要一些钩子脚本，而多出脚本目录。
+至此，对cordova的目录结构应该有个大致了解。  
+但是上面说的不是绝对的，比如插件的目录结构可能由于插件的功能（仅需要js或者native代码）不同，而有所缺失。  
+又或者需要一些钩子脚本，而多出脚本目录。  
