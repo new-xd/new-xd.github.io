@@ -367,6 +367,8 @@ Actions.key() 就可以跳转到key对应的界面
 - Switch 没有区分栈，导致不能pop的界面，如果进行pop，会对真实的栈产生pop效果
 - 从store中获取的当前scene可能与真实的情况不符，比如tab页，有时候显示的是tab页中具体的页面，有时是tab页
 
+写了一个小的[demo](https://github.com/new-xd/ReactNativeDemo)
+
 # redux
 redux是管理应用数据状态的js库，实现flux设计思路。  
 
