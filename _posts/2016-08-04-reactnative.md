@@ -11,8 +11,8 @@ tags:
 基于React Native docs 0.30
 
 # install
-1. 安装node
-2. 安装Python2
+1. 安装node (安装最新版)
+2. 安装Python2 
 3. npm install -g react-native-cli
 4. 安装 Android编译环境
 
@@ -33,6 +33,53 @@ tags:
 命令行编译原生的命令（android）
 
     cd android&&gradlew assembleRelease
+
+输出日志：
+
+    adb logcat *:S ReactNative:V ReactNativeJS:V
+
+# 已有项目环境创建
+
+已有的项目不会将node\_modules进行代码管理，所以一般checkout下来都是没有node\_modules的
+
+1. npm install 重新安装node_modules
+2. react-native run-android 
+
+# 部分问题
+
+## reload js无效
+有些时候 reload js不好用，总是要重启packager，请确认你的node python2 react react-native 都是最新版
+
+## no propType for native prop 之类的错误
+更新react-native的版本之后，记得react-native upgrade升级react-native自带的应用模板代码，不然也可能出现莫名其妙的错误
+
+## native开发时总是报网络错误
+进行Android开发的时候，在只修改native代码的情况下，建议把模板Application中 return BuildConfig.DEBUG 改为 return false，
+避免总是尝试连接packager服务器
+
+## ios跳转native界面非常卡
+进行ios开发的时候native module的导出的方法不是在主线程中操作的，如果要做跳转界面，需要切换到主线程，不然特别慢，
+另外就是默认的rootController不支持跳转界面的，需要修改为可以跳转界面的controller
+
+## 文字背景设置
+ios上 Text 默认会有白色背景，而android上 Text默认是透明背景  
+color的格式如下
+
+- '#f0f' (#rgb)
+- '#f0fc' (#rgba)
+- '#ff00ff' (#rrggbb)
+- '#ff00ff00' (#rrggbbaa)
+- 'rgb(255, 255, 255)'
+- 'rgba(255, 255, 255, 1.0)'
+- 'hsl(360, 100%, 100%)'
+- 'hsla(360, 100%, 100%, 1.0)'
+- 'transparent'
+- 'red'
+其中alpha值 是在后面，这点与android上的写法略有不同
+
+## ios的状态栏设置
+ios默认是占满全屏的，这样会让状态栏和界面重叠在一起，如果不是要这种效果需要重新处理一下
+
 
 # 基础知识
 
